@@ -20,7 +20,7 @@ namespace SimpleAPI.Infrastructure.Data
         {
         }
 
-        protected override bool CanApplyEntityLog => false;
+        protected override bool CanApplyEntityLog => true;
 
         protected override object EntityLogBy => null;
 

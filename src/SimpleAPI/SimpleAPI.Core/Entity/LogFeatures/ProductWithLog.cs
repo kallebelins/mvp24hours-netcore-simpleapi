@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace SimpleAPI.Core.Entity.LogFeatures
 {
     [DataContract(IsReference = false)]
-    public partial class ProductWithLog : EntityBaseLog<int, int>
+    public partial class ProductWithLog : EntityBaseLog<int, int?>
     {
         #region [ Primitive members ]
 
