@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mvp24Hours.Application" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleAPI.Core\SimpleAPI.Core.csproj" />
+    <ProjectReference Include="..\SimpleAPI.Infrastructure\SimpleAPI.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
