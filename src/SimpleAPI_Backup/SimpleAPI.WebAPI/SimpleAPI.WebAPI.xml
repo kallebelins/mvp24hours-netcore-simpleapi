@@ -173,7 +173,7 @@
             
             </summary>
         </member>
-        <member name="M:SimpleAPI.API.Controllers.ProductCategoryWithPagingController.Get(System.String,Mvp24Hours.Core.DTO.Logic.PagingCriteria{SimpleAPI.Core.Entity.ProductCategorySimple})">
+        <member name="M:SimpleAPI.API.Controllers.ProductCategoryWithPagingController.Get(System.String,Mvp24Hours.Core.DTO.Logic.PagingCriteria{SimpleAPI.Core.Entity.SimpleFeatures.ProductCategorySimple})">
             <summary>
             
             </summary>
@@ -188,14 +188,14 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SimpleAPI.API.Controllers.ProductCategoryWithPagingController.Post(SimpleAPI.Core.Entity.ProductCategorySimple)">
+        <member name="M:SimpleAPI.API.Controllers.ProductCategoryWithPagingController.Post(SimpleAPI.Core.Entity.SimpleFeatures.ProductCategorySimple)">
             <summary>
             
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:SimpleAPI.API.Controllers.ProductCategoryWithPagingController.Put(System.Int32,SimpleAPI.Core.Entity.ProductCategorySimple)">
+        <member name="M:SimpleAPI.API.Controllers.ProductCategoryWithPagingController.Put(System.Int32,SimpleAPI.Core.Entity.SimpleFeatures.ProductCategorySimple)">
             <summary>
             
             </summary>
@@ -215,7 +215,7 @@
             
             </summary>
         </member>
-        <member name="M:SimpleAPI.API.Controllers.ProductWithPagingController.Get(System.String,Mvp24Hours.Core.DTO.Logic.PagingCriteria{SimpleAPI.Core.Entity.ProductSimple})">
+        <member name="M:SimpleAPI.API.Controllers.ProductWithPagingController.Get(System.String,Mvp24Hours.Core.DTO.Logic.PagingCriteria{SimpleAPI.Core.Entity.SimpleFeatures.ProductSimple})">
             <summary>
             
             </summary>
@@ -230,14 +230,14 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SimpleAPI.API.Controllers.ProductWithPagingController.Post(SimpleAPI.Core.Entity.ProductSimple)">
+        <member name="M:SimpleAPI.API.Controllers.ProductWithPagingController.Post(SimpleAPI.Core.Entity.SimpleFeatures.ProductSimple)">
             <summary>
             
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:SimpleAPI.API.Controllers.ProductWithPagingController.Put(System.Int32,SimpleAPI.Core.Entity.ProductSimple)">
+        <member name="M:SimpleAPI.API.Controllers.ProductWithPagingController.Put(System.Int32,SimpleAPI.Core.Entity.SimpleFeatures.ProductSimple)">
             <summary>
             
             </summary>
@@ -271,14 +271,14 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SimpleAPI.API.Controllers.ProductCategorySimpleController.Post(SimpleAPI.Core.Entity.ProductCategorySimple)">
+        <member name="M:SimpleAPI.API.Controllers.ProductCategorySimpleController.Post(SimpleAPI.Core.Entity.SimpleFeatures.ProductCategorySimple)">
             <summary>
             
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:SimpleAPI.API.Controllers.ProductCategorySimpleController.Put(System.Int32,SimpleAPI.Core.Entity.ProductCategorySimple)">
+        <member name="M:SimpleAPI.API.Controllers.ProductCategorySimpleController.Put(System.Int32,SimpleAPI.Core.Entity.SimpleFeatures.ProductCategorySimple)">
             <summary>
             
             </summary>
@@ -312,14 +312,14 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SimpleAPI.API.Controllers.ProductSimpleController.Post(SimpleAPI.Core.Entity.ProductSimple)">
+        <member name="M:SimpleAPI.API.Controllers.ProductSimpleController.Post(SimpleAPI.Core.Entity.SimpleFeatures.ProductSimple)">
             <summary>
             
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:SimpleAPI.API.Controllers.ProductSimpleController.Put(System.Int32,SimpleAPI.Core.Entity.ProductSimple)">
+        <member name="M:SimpleAPI.API.Controllers.ProductSimpleController.Put(System.Int32,SimpleAPI.Core.Entity.SimpleFeatures.ProductSimple)">
             <summary>
             
             </summary>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mvp24Hours.Core" Version="1.6.101" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ValueObjects\LogFeatures\ProductCategories\" />
+    <Folder Include="ValueObjects\LogFeatures\Products\" />
+    <Folder Include="ValueObjects\PagingFeatures\ProductCategories\" />
+    <Folder Include="ValueObjects\PagingFeatures\Products\" />
+    <Folder Include="ValueObjects\SimpleFeatures\ProductCategories\" />
+    <Folder Include="ValueObjects\SimpleFeatures\Products\" />
+  </ItemGroup>
+
+</Project>

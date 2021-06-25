@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Mvp24Hours.Infrastructure.Data;
-using SimpleAPI.Core.Entity.GuidFeatures;
-using SimpleAPI.Core.Entity.LogFeatures;
-using SimpleAPI.Core.Entity.SimpleFeatures;
+using SimpleAPI.Core.Entity;
 
 namespace SimpleAPI.Infrastructure.Data
 {
@@ -28,20 +26,8 @@ namespace SimpleAPI.Infrastructure.Data
 
         #region [ Sets ]
 
-        #region [ Simple ]
-        public virtual DbSet<ProductSimple> ProductSimple { get; set; }
-        public virtual DbSet<ProductCategorySimple> ProductCategorySimple { get; set; }
-        #endregion
-
-        #region [ Guid ]
-        public virtual DbSet<ProductWithGuid> ProductWithGuid { get; set; }
-        public virtual DbSet<ProductCategoryWithGuid> ProductCategoryWithGuid { get; set; }
-        #endregion
-
-        #region [ Log ]
-        public virtual DbSet<ProductWithLog> ProductWithLog { get; set; }
-        public virtual DbSet<ProductCategoryWithLog> ProductCategoryWithLog { get; set; }
-        #endregion
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
 
         #endregion
     }

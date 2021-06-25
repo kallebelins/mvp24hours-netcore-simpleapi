@@ -5,10 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mvp24Hours.Application" Version="1.0.0" />
+    <PackageReference Include="Mvp24Hours.Application" Version="1.6.101" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\mvp24hours-netcore\src\Mvp24Hours.Application\Mvp24Hours.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\mvp24hours-netcore\src\Mvp24Hours.Core\Mvp24Hours.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\mvp24hours-netcore\src\Mvp24Hours.Infrastructure.Data\Mvp24Hours.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\..\..\..\mvp24hours-netcore\src\Mvp24Hours.Infrastructure\Mvp24Hours.Infrastructure.csproj" />
     <ProjectReference Include="..\SimpleAPI.Core\SimpleAPI.Core.csproj" />
     <ProjectReference Include="..\SimpleAPI.Infrastructure\SimpleAPI.Infrastructure.csproj" />
   </ItemGroup>
