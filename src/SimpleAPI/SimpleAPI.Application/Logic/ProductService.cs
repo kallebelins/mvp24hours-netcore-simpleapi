@@ -6,9 +6,12 @@ using Mvp24Hours.Core.Enums;
 using Mvp24Hours.Core.ValueObjects.Logic;
 using Mvp24Hours.Infrastructure.Extensions;
 using Mvp24Hours.Infrastructure.Helpers;
+using Mvp24Hours.Infrastructure.Validations;
 using SimpleAPI.Core.Contract.Logic;
 using SimpleAPI.Core.Entity;
 using SimpleAPI.Core.Resources;
+using SimpleAPI.Core.Specifications.ProductCategories;
+using SimpleAPI.Core.Specifications.Products;
 using SimpleAPI.Core.ValueObjects.Products;
 using System;
 using System.Collections.Generic;
@@ -100,19 +103,22 @@ namespace SimpleAPI.Application.Logic
         {
             try
             {
-                var Product = dto.MapTo<Product>();
+                var entity = dto.MapTo<Product>();
 
-                if (await AddAsync(Product) > 0)
+                var validator = new ValidatorEntityNotify<Product>()
+                    .AddSpecification(new SpecialCategoryAllowsOneProductSpec(entity));
+
+                if (await AddAsync(entity) > 0)
                 {
-                    return Product
+                    return entity
                         .MapTo<CreateProductResponse>()
                         .ToBusinessWithMessage(
-                            Messages.OPERATION_SUCCESS.ToMessageResult(nameof(Messages.OPERATION_SUCCESS),MessageType.Success)
+                            Messages.OPERATION_SUCCESS.ToMessageResult(nameof(Messages.OPERATION_SUCCESS), MessageType.Success)
                         );
                 }
 
                 return BusinessResult<CreateProductResponse>.Create(
-                    Messages.OPERATION_FAIL.ToMessageResult(nameof(Messages.OPERATION_FAIL),MessageType.Error)
+                    Messages.OPERATION_FAIL.ToMessageResult(nameof(Messages.OPERATION_FAIL), MessageType.Error)
                 );
             }
             catch (Exception ex)
@@ -126,26 +132,29 @@ namespace SimpleAPI.Application.Logic
         {
             try
             {
-                var entidade = await GetProductById(id);
+                var entity = await GetProductById(id);
 
-                if (entidade == null)
+                var validator = new ValidatorEntityNotify<Product>()
+                    .AddSpecification(new SpecialCategoryAllowsOneProductSpec(entity));
+
+                if (entity == null)
                 {
                     return BusinessResult<VoidResult>.Create(
-                        Messages.OPERATION_FAIL_ID_NOT_FOUND.ToMessageResult(nameof(Messages.OPERATION_FAIL_ID_NOT_FOUND),MessageType.Warning)
+                        Messages.OPERATION_FAIL_ID_NOT_FOUND.ToMessageResult(nameof(Messages.OPERATION_FAIL_ID_NOT_FOUND), MessageType.Warning)
                     );
                 }
 
-                AutoMapperHelper.Map<Product>(entidade, dto);
+                AutoMapperHelper.Map<Product>(entity, dto);
 
-                if (await ModifyAsync(entidade) > 0)
+                if (await ModifyAsync(entity) > 0)
                 {
                     return BusinessResult<VoidResult>.Create(
-                        Messages.OPERATION_SUCCESS.ToMessageResult(nameof(Messages.OPERATION_SUCCESS),MessageType.Success)
+                        Messages.OPERATION_SUCCESS.ToMessageResult(nameof(Messages.OPERATION_SUCCESS), MessageType.Success)
                     );
                 }
 
                 return BusinessResult<VoidResult>.Create(
-                    Messages.OPERATION_FAIL.ToMessageResult(nameof(Messages.OPERATION_FAIL),MessageType.Error)
+                    Messages.OPERATION_FAIL.ToMessageResult(nameof(Messages.OPERATION_FAIL), MessageType.Error)
                 );
             }
             catch (Exception ex)
@@ -164,19 +173,19 @@ namespace SimpleAPI.Application.Logic
                 if (entidade == null)
                 {
                     return BusinessResult<VoidResult>.Create(
-                        Messages.OPERATION_FAIL_ID_NOT_FOUND.ToMessageResult(nameof(Messages.OPERATION_FAIL_ID_NOT_FOUND),MessageType.Warning)
+                        Messages.OPERATION_FAIL_ID_NOT_FOUND.ToMessageResult(nameof(Messages.OPERATION_FAIL_ID_NOT_FOUND), MessageType.Warning)
                     );
                 }
 
                 if (await RemoveByIdAsync(id) > 0)
                 {
                     return BusinessResult<VoidResult>.Create(
-                        Messages.OPERATION_SUCCESS.ToMessageResult(nameof(Messages.OPERATION_SUCCESS),MessageType.Success)
+                        Messages.OPERATION_SUCCESS.ToMessageResult(nameof(Messages.OPERATION_SUCCESS), MessageType.Success)
                     );
                 }
 
                 return BusinessResult<VoidResult>.Create(
-                    Messages.OPERATION_FAIL.ToMessageResult(nameof(Messages.OPERATION_FAIL),MessageType.Error)
+                    Messages.OPERATION_FAIL.ToMessageResult(nameof(Messages.OPERATION_FAIL), MessageType.Error)
                 );
             }
             catch (Exception ex)

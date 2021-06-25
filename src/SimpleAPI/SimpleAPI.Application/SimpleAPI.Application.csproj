@@ -9,10 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\mvp24hours-netcore\src\Mvp24Hours.Application\Mvp24Hours.Application.csproj" />
-    <ProjectReference Include="..\..\..\..\mvp24hours-netcore\src\Mvp24Hours.Core\Mvp24Hours.Core.csproj" />
-    <ProjectReference Include="..\..\..\..\mvp24hours-netcore\src\Mvp24Hours.Infrastructure.Data\Mvp24Hours.Infrastructure.Data.csproj" />
-    <ProjectReference Include="..\..\..\..\mvp24hours-netcore\src\Mvp24Hours.Infrastructure\Mvp24Hours.Infrastructure.csproj" />
     <ProjectReference Include="..\SimpleAPI.Core\SimpleAPI.Core.csproj" />
     <ProjectReference Include="..\SimpleAPI.Infrastructure\SimpleAPI.Infrastructure.csproj" />
   </ItemGroup>

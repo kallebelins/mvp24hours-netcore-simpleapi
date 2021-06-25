@@ -5,11 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mvp24Hours.Core" Version="1.6.101" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\mvp24hours-netcore\src\Mvp24Hours.Core\Mvp24Hours.Core.csproj" />
+    <PackageReference Include="Mvp24Hours.Core" Version="1.6.251" />
   </ItemGroup>
 
   <ItemGroup>

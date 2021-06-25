@@ -6,9 +6,11 @@ using Mvp24Hours.Core.Enums;
 using Mvp24Hours.Core.ValueObjects.Logic;
 using Mvp24Hours.Infrastructure.Extensions;
 using Mvp24Hours.Infrastructure.Helpers;
+using Mvp24Hours.Infrastructure.Validations;
 using SimpleAPI.Core.Contract.Logic;
 using SimpleAPI.Core.Entity;
 using SimpleAPI.Core.Resources;
+using SimpleAPI.Core.Specifications.ProductCategories;
 using SimpleAPI.Core.ValueObjects.ProductCategories;
 using System;
 using System.Collections.Generic;
@@ -101,11 +103,11 @@ namespace SimpleAPI.Application.Logic
         {
             try
             {
-                var ProductCategory = dto.MapTo<ProductCategory>();
+                var entity = dto.MapTo<ProductCategory>();
 
-                if (await AddAsync(ProductCategory) > 0)
+                if (await AddAsync(entity) > 0)
                 {
-                    return ProductCategory
+                    return entity
                         .MapTo<CreateProductCategoryResponse>()
                         .ToBusinessWithMessage(
                             Messages.OPERATION_SUCCESS.ToMessageResult(nameof(Messages.OPERATION_SUCCESS), MessageType.Success)
@@ -127,18 +129,18 @@ namespace SimpleAPI.Application.Logic
         {
             try
             {
-                var entidade = await GetProductCategoryById(id);
+                var entity = await GetProductCategoryById(id);
 
-                if (entidade == null)
+                if (entity == null)
                 {
                     return BusinessResult<VoidResult>.Create(
                         Messages.OPERATION_FAIL_ID_NOT_FOUND.ToMessageResult(nameof(Messages.OPERATION_FAIL_ID_NOT_FOUND), MessageType.Warning)
                     );
                 }
 
-                AutoMapperHelper.Map<ProductCategory>(entidade, dto);
+                AutoMapperHelper.Map<ProductCategory>(entity, dto);
 
-                if (await ModifyAsync(entidade) > 0)
+                if (await ModifyAsync(entity) > 0)
                 {
                     return BusinessResult<VoidResult>.Create(
                         Messages.OPERATION_SUCCESS.ToMessageResult(nameof(Messages.OPERATION_SUCCESS), MessageType.Success)
@@ -160,16 +162,21 @@ namespace SimpleAPI.Application.Logic
         {
             try
             {
-                var entidade = await GetProductCategoryById(id);
+                var entity = await GetProductCategoryById(id);
 
-                if (entidade == null)
+                if (entity == null)
                 {
                     return BusinessResult<VoidResult>.Create(
                         Messages.OPERATION_FAIL_ID_NOT_FOUND.ToMessageResult(nameof(Messages.OPERATION_FAIL_ID_NOT_FOUND), MessageType.Warning)
                     );
                 }
 
-                if (await RemoveByIdAsync(id) > 0)
+                var validator = new ValidatorEntityNotify<ProductCategory>()
+                    .AddSpecification<IsNotSpecialCategorySpec>()
+                    .AddSpecification<CategoryHasNotProductSpec>();
+
+                if (!validator.Validate(entity) 
+                    && await RemoveByIdAsync(id) > 0)
                 {
                     return BusinessResult<VoidResult>.Create(
                         Messages.OPERATION_SUCCESS.ToMessageResult(nameof(Messages.OPERATION_SUCCESS), MessageType.Success)
